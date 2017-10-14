@@ -1,0 +1,40 @@
+machine:
+  services:
+    - docker
+
+  pre:
+    - docker info && docker version
+    # Cache some Docker images to make builds faster
+    
+  override:
+    - docker pull centos:7
+
+# Run tests
+test:
+  pre:
+    # Build Centos image
+    - docker build -t polinux/supervisor:centos centos7
+    # Build Alpine Version
+    - docker build -t polinux/supervisor:alpine alpine
+
+  override:
+    # Start Centos version
+    - docker run -d --name supervisor-centos polinux/supervisor:centos
+    # Start Alpine version
+    - docker run -d --name supervisor-alpine polinux/supervisor:alpine
+
+    # CentOS Tests 
+    # Test if supervisord is running
+    - docker exec -i supervisor-centos bash -c "ps aux | grep supervisord"
+    # Test if supervisorctl is working
+    - docker exec -i supervisor-centos bash -c "supervisorctl stop all"
+    # Test if we have inotify working
+    - docker exec -i supervisor-centos bash -c "inotifywatch -t 1 /home | tee /tmp/out"
+
+    # Alpine Tests
+    # Test if supervisord is running
+    - docker exec -i supervisor-alpine bash -c "ps aux | grep supervisord"
+    # Test if supervisorctl is working
+    - docker exec -i supervisor-alpine bash -c "supervisorctl stop all"
+    # Test if we have inotify working
+    - docker exec -i supervisor-alpine bash -c "inotifywatch -t 1 /home | tee /tmp/out"
