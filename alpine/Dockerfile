@@ -1,4 +1,4 @@
-FROM armhf/alpine:3.5
+FROM alpine:latest
 
 RUN \
   apk add --update bash supervisor inotify-tools && \
