@@ -1,5 +1,5 @@
 # Supervisor in a Docker (CentOS and Alpine version available)
-[![CircleCI Build Status](https://img.shields.io/circleci/project/pozgo/docker-supervisor/master.svg)](https://circleci.com/gh/pozgo/docker-supervisor)
+[![Build Status](https://travis-ci.org/pozgo/docker-supervisor.svg)](https://travis-ci.org/pozgo/docker-supervisor)  
 [![GitHub Open Issues](https://img.shields.io/github/issues/pozgo/docker-supervisor.svg)](https://github.com/pozgo/docker-supervisor/issues)  
 [![Stars](https://img.shields.io/github/stars/pozgo/docker-supervisor.svg?style=social&label=Stars)]()
 [![Fork](https://img.shields.io/github/forks/pozgo/docker-supervisor.svg?style=social&label=Fork)]()  

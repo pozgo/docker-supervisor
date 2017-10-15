@@ -1,23 +1,19 @@
-machine:
-  services:
+branches:
+  only:
+    - master
+
+services:
     - docker
 
-  pre:
-    - docker info && docker version
-    # Cache some Docker images to make builds faster
-    
-  override:
-    - docker pull centos:7
+before_install:
+    - docker --version
 
-# Run tests
-test:
-  pre:
-    # Build Centos image
-    - docker build -t polinux/supervisor:centos centos7
-    # Build Alpine Version
-    - docker build -t polinux/supervisor:alpine alpine
+script:
+    - centos="polinux/supervisor:centos"
+    - alpine="polinux/supervisor:alpine"
+    - docker build -t "$centos" centos7
+    - docker build -t "$alpine" alpine
 
-  override:
     # Start Centos version
     - docker run -d --name supervisor-centos polinux/supervisor:centos
     # Start Alpine version
