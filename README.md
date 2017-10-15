@@ -11,7 +11,7 @@
 Felling like supporting me in my projects use donate button. Thank You!  
 [![](https://img.shields.io/badge/donate-PayPal-blue.svg)](https://www.paypal.me/POzgo)
 
-This is a Supervisor Docker [polinux/supervisor](https://registry.hub.docker.com/u/polinux/supervisor/) image, perfect in case when you need to launch more then one process inside a container. This image is based on [armhf/alpine](https://registry.hub.docker.com/_/armhf/alpine)
+This is a Supervisor Docker [polinux/supervisor](https://registry.hub.docker.com/u/polinux/supervisor/) image, perfect in case when you need to launch more then one process inside a container.
 
 ## What's included
 
