@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM alpine:3.18.3
 
 RUN \
   apk add --update bash supervisor inotify-tools && \
